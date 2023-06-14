@@ -1,6 +1,16 @@
 {
   "name": "brat-language-support",
   "displayName": "brat-language-support",
+  "publisher": "stuartthomson",
+  "author": {
+    "name": "Stuart Thomson"
+  },
+  "keywords": [
+    "brat",
+    "annotation",
+    "syntax",
+    "language"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/stuartthomson/vscode-brat.git"
