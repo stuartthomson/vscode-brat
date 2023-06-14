@@ -1,0 +1,207 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "brat",
+	"patterns": [
+		{
+			"include": "#entities"
+		},
+		{
+			"include": "#attributes"
+		},
+		{
+			"include": "#relationships"
+		},
+		{
+			"include": "#notes"
+		},
+		{
+			"include": "#events"
+		},
+		{
+			"include": "#normalizations"
+		}
+	],
+	"repository": {
+		"entities": {
+			"name": "variable.entity.brat",
+			"patterns": [
+				{
+					"match": "^(T\\d+)\t(\\S+) (\\d+) (\\d+)\t([^\n]+)",
+					"captures": {
+						"1": {
+							"name": "keyword.entity-id.brat"
+						},
+						"2": {
+							"name": "entity.name.type.class"
+						},
+						"3": {
+							"name": "constant.numeric.brat"
+						},
+						"4": {
+							"name": "constant.numeric.brat"
+						},
+						"5": {
+							"name": "comment"
+						}
+					}
+				},
+				{
+					"match": "^(T\\d+)\t(\\S+) (\\d+) (\\d+);(\\d+) (\\d+)\t([^\n]+)",
+					"captures": {
+						"1": {
+							"name": "keyword.entity-id.brat"
+						},
+						"2": {
+							"name": "entity.name.type.class"
+						},
+						"3": {
+							"name": "constant.numeric.brat"
+						},
+						"4": {
+							"name": "constant.numeric.brat"
+						},
+						"5": {
+							"name": "constant.numeric.brat"
+						},
+						"6": {
+							"name": "constant.numeric.brat"
+						},
+						"7": {
+							"name": "comment"
+						}
+					}
+				}
+			]
+		},
+		"attributes": {
+			"name": "variable.attributes",
+			"patterns": [
+				{
+					"match": "^([AM]\\d+)\t(\\S+) (T\\d+) {0,1}(\\S+)?$",
+					"captures": {
+						"1": {
+							"name": "variable.attributes.brat"
+						},
+						"2": {
+							"name": "entity.name.function.member"
+						},
+						"3": {
+							"name": "keyword.brat"
+						},
+						"4": {
+							"name": "string"
+						}
+					}
+				}
+			]
+		},
+		"relationships": {
+			"patterns": [
+				{
+					"name": "entity.name.function",
+					"match": "^(R\\d+)\t(\\S+) (\\S+):(\\S+) (\\S+):(\\S+)\\s*$",
+					"captures": {
+						"1": {
+							"name": "keyword.control.relationship-id.brat"
+						},
+						"2": {
+							"name": "entity.name.function.relationship-name.brat"
+						},
+						"3": {
+							"name": "keyword.operator.arg-1.brat"
+						},
+						"4": {
+							"name": "keyword.entity-id.brat"
+						},
+						"5": {
+							"name": "keyword.operator.arg-2.brat"
+						},
+						"6": {
+							"name": "keyword.entity-id.brat"
+						}
+					}
+				}
+			]
+		},
+		"notes": {
+			"patterns": [
+				{
+					"match": "^(#\\d+)\t(\\S+) (T\\d+)\t([^\n]+)",
+					"captures": {
+						"1": {
+							"name": "string.note-id.brat"
+						},
+						"2": {
+							"name": "keyword.operator.note-type.brat"
+						},
+						"3": {
+							"name": "keyword.entity-id.brat"
+						},
+						"4": {
+							"name": "comment.block.note-content.brat"
+
+						}
+					}
+				}
+			]
+		},
+		"events": {
+			"patterns": [
+				{
+					"match": "^(E\\d+)\t(\\S+):(T\\d+) (\\S+):(T\\d+) (\\S+):(T\\d+)$",
+					"captures": {
+						"1": {
+							"name": "keyword.control.event-id.brat"
+						},
+						"2": {
+							"name": "strong.event-trigger.brat"
+						},
+						"3": {
+							"name": "keyword.event-trigger-entity-id.brat"
+						},
+						"4": {
+							"name": "entity-1-role.brat"
+						},
+						"5": {
+							"name": "keyword.entity-1-id.brat"
+						},
+						"6": {
+							"name": "entity-2-role.brat"
+						},
+						"7": {
+							"name": "keyword.entity-2-id.brat"
+						}
+					}
+				}
+			]
+		},
+		"normalizations": {
+			"patterns": [
+				{
+					"match": "^(N\\d+)\t(\\S+) (T\\d+) (\\S+):(\\S+)\t([^\n]+)$",
+					"captures": {
+						"1": {
+							"name": "keyword.control.norm-id.brat"
+						},
+						"2": {
+							"name": "strong.reference.brat"
+						},
+						"3": {
+							"name": "keyword.entity-id.brat"
+						},
+						"4": {
+							"name": "reference-name.brat"
+						},
+						"5": {
+							"name": "constant.numeric.reference-id.brat"
+						},
+						"6": {
+							"name": "norm-value.brat"
+						}
+					}
+				}
+			]
+		}
+	},
+	"scopeName": "source.brat"
+}
